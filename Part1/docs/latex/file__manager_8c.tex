@@ -1,0 +1,123 @@
+\hypertarget{file__manager_8c}{}\section{src/file\+\_\+manager.c File Reference}
+\label{file__manager_8c}\index{src/file\_manager.c@{src/file\_manager.c}}
+
+
+Function to manage file easily.  
+
+
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cesar.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{file__manager_8c_abbf342b9d14392a7a29c802a5650648b}{safe\+\_\+open}} (const char $\ast$file\+\_\+name, uint32\+\_\+t open\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Open a file with the open\+\_\+type wanted, call pexit\+\_\+failure if an error occured. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{file__manager_8c_a56eeece00e6ea85ee0bafbd5394e9ff0}{safe\+\_\+close}} (int32\+\_\+t fd)
+\begin{DoxyCompactList}\small\item\em Close a file descriptor, if an error occured the function call pexit\+\_\+failure. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{file__manager_8c_a88f05804f7e04f06914c8bfda1b01591}{get\+\_\+size\+\_\+file}} (const char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Get the size of the file using the stat function. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{file__manager_8c_a217d68eeea01da92a715f028d2abc5b8}{get\+\_\+file\+\_\+content}} (const char $\ast$file\+\_\+name, size\+\_\+t size\+\_\+file\+\_\+content, char $\ast$$\ast$file\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Get the content of the file in a buffer, using safe\+\_\+open and safe\+\_\+close function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Function to manage file easily. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{file__manager_8c_a217d68eeea01da92a715f028d2abc5b8}\label{file__manager_8c_a217d68eeea01da92a715f028d2abc5b8}} 
+\index{file\_manager.c@{file\_manager.c}!get\_file\_content@{get\_file\_content}}
+\index{get\_file\_content@{get\_file\_content}!file\_manager.c@{file\_manager.c}}
+\subsubsection{\texorpdfstring{get\_file\_content()}{get\_file\_content()}}
+{\footnotesize\ttfamily int32\+\_\+t get\+\_\+file\+\_\+content (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+name,  }\item[{size\+\_\+t}]{size\+\_\+file\+\_\+content,  }\item[{char $\ast$$\ast$}]{file\+\_\+content }\end{DoxyParamCaption})}
+
+
+
+Get the content of the file in a buffer, using safe\+\_\+open and safe\+\_\+close function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+\_\+name} & the path of the file to be open. \\
+\hline
+\mbox{\texttt{ in}}  & {\em size\+\_\+file\+\_\+content} & size of the content of the file. \\
+\hline
+\mbox{\texttt{ out}}  & {\em file\+\_\+content} & buffer filed up with the content of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t
+\begin{DoxyItemize}
+\item ON E\+R\+R\+OR \+: call pexit\+\_\+failure with \char`\"{}get\+\_\+file\+\_\+content error N\char`\"{} as parameter where N is the number of the error and return -\/1.
+\item ON S\+U\+C\+C\+E\+SS \+: return the file descriptor. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__manager_8c_a88f05804f7e04f06914c8bfda1b01591}\label{file__manager_8c_a88f05804f7e04f06914c8bfda1b01591}} 
+\index{file\_manager.c@{file\_manager.c}!get\_size\_file@{get\_size\_file}}
+\index{get\_size\_file@{get\_size\_file}!file\_manager.c@{file\_manager.c}}
+\subsubsection{\texorpdfstring{get\_size\_file()}{get\_size\_file()}}
+{\footnotesize\ttfamily size\+\_\+t get\+\_\+size\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Get the size of the file using the stat function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+\_\+name} & the path of the file to be open. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t
+\begin{DoxyItemize}
+\item ON E\+R\+R\+OR \+: call pexit\+\_\+failure with \char`\"{}get\+\_\+size\+\_\+file error\char`\"{} as parameter and return 0.
+\item ON S\+U\+C\+C\+E\+SS \+: return the size of the file. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__manager_8c_a56eeece00e6ea85ee0bafbd5394e9ff0}\label{file__manager_8c_a56eeece00e6ea85ee0bafbd5394e9ff0}} 
+\index{file\_manager.c@{file\_manager.c}!safe\_close@{safe\_close}}
+\index{safe\_close@{safe\_close}!file\_manager.c@{file\_manager.c}}
+\subsubsection{\texorpdfstring{safe\_close()}{safe\_close()}}
+{\footnotesize\ttfamily int32\+\_\+t safe\+\_\+close (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{fd }\end{DoxyParamCaption})}
+
+
+
+Close a file descriptor, if an error occured the function call pexit\+\_\+failure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & File descriptor that have to be closed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t
+\begin{DoxyItemize}
+\item ON E\+R\+R\+OR \+: call pexit\+\_\+failure with \char`\"{}safe\+\_\+close\char`\"{} as parameter and return -\/1.
+\item ON S\+U\+C\+C\+E\+SS \+: return 0. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__manager_8c_abbf342b9d14392a7a29c802a5650648b}\label{file__manager_8c_abbf342b9d14392a7a29c802a5650648b}} 
+\index{file\_manager.c@{file\_manager.c}!safe\_open@{safe\_open}}
+\index{safe\_open@{safe\_open}!file\_manager.c@{file\_manager.c}}
+\subsubsection{\texorpdfstring{safe\_open()}{safe\_open()}}
+{\footnotesize\ttfamily int32\+\_\+t safe\+\_\+open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+name,  }\item[{uint32\+\_\+t}]{open\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Open a file with the open\+\_\+type wanted, call pexit\+\_\+failure if an error occured. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+\_\+name} & the path of the file to be open. \\
+\hline
+\mbox{\texttt{ in}}  & {\em open\+\_\+type} & how the file is open. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t
+\begin{DoxyItemize}
+\item ON E\+R\+R\+OR \+: call pexit\+\_\+failure with \char`\"{}safe\+\_\+open error N\char`\"{} as parameter where N is the number of the error and return -\/1.
+\item ON S\+U\+C\+C\+E\+SS \+: return the file descriptor. 
+\end{DoxyItemize}
+\end{DoxyReturn}
