@@ -1,0 +1,45 @@
+\hypertarget{error_8c}{}\section{src/error.c File Reference}
+\label{error_8c}\index{src/error.c@{src/error.c}}
+
+
+Error function.  
+
+
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cesar.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{error_8c_a0cb9e5fe1a079dc4e500739bcef167a5}{pexit\+\_\+failure}} (const char $\ast$func\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Print an error, after a call to this function the program should finish. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Error function. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{error_8c_a0cb9e5fe1a079dc4e500739bcef167a5}\label{error_8c_a0cb9e5fe1a079dc4e500739bcef167a5}} 
+\index{error.c@{error.c}!pexit\_failure@{pexit\_failure}}
+\index{pexit\_failure@{pexit\_failure}!error.c@{error.c}}
+\subsubsection{\texorpdfstring{pexit\_failure()}{pexit\_failure()}}
+{\footnotesize\ttfamily int32\+\_\+t pexit\+\_\+failure (\begin{DoxyParamCaption}\item[{const char $\ast$}]{func\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Print an error, after a call to this function the program should finish. 
+
+
+\begin{DoxyItemize}
+\item errno $>$ 0\+: print using perror.
+\item errno $<$= 0\+: print using dprintf. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em func\+\_\+name} & is the string corresponding to the function where the error occured. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t return -\/1. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}

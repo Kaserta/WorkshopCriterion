@@ -1,0 +1,27 @@
+\hypertarget{test__safe__close_8c}{}\section{tests/test\+\_\+safe\+\_\+close.c File Reference}
+\label{test__safe__close_8c}\index{tests/test\_safe\_close.c@{tests/test\_safe\_close.c}}
+
+
+Unit test for the function safe\+\_\+close.  
+
+
+{\ttfamily \#include $<$criterion/criterion.\+h$>$}\newline
+{\ttfamily \#include $<$criterion/redirect.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cesar.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{test__safe__close_8c_a61d47fb62796a7679bfd5bfb36ace478}\label{test__safe__close_8c_a61d47fb62796a7679bfd5bfb36ace478}} 
+{\bfseries Test\+Suite} (\mbox{\hyperlink{cesar_8h_a56eeece00e6ea85ee0bafbd5394e9ff0}{safe\+\_\+close}},.init=cr\+\_\+redirect\+\_\+stderr,.fini=N\+U\+LL,.disabled=0,.description=\char`\"{}Test the function\+: safe\+\_\+close.\char`\"{},.timeout=2)
+\item 
+\mbox{\Hypertarget{test__safe__close_8c_ad8ef2fa3d97088bd35f0e4d91e800cb1}\label{test__safe__close_8c_ad8ef2fa3d97088bd35f0e4d91e800cb1}} 
+{\bfseries Test} (\mbox{\hyperlink{cesar_8h_a56eeece00e6ea85ee0bafbd5394e9ff0}{safe\+\_\+close}}, B\+A\+D\+\_\+\+Entry,.description=\char`\"{}Bad file descriptor.\char`\"{})
+\item 
+\mbox{\Hypertarget{test__safe__close_8c_a53fa91b3bf81bb4f6f33245e96b4dda4}\label{test__safe__close_8c_a53fa91b3bf81bb4f6f33245e96b4dda4}} 
+{\bfseries Test} (\mbox{\hyperlink{cesar_8h_a56eeece00e6ea85ee0bafbd5394e9ff0}{safe\+\_\+close}}, G\+O\+O\+D\+\_\+\+Entry,.description=\char`\"{}Valid file descriptor.\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Unit test for the function safe\+\_\+close. 
+
